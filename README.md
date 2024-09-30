@@ -9,7 +9,7 @@
 **License:** GPLv2 or later  
 **License URI:** [https://www.gnu.org/licenses/gpl-2.0.html](https://www.gnu.org/licenses/gpl-2.0.html)  
 
-LS Comment Stopword Checker is a WordPress multisite plugin that prevents users from posting comments containing predefined stopwords. It allows network admins to configure a stopword list that blocks specific terms from appearing in comments across all subsites.
+LS Comment Stopword Checker is a WordPress multisite plugin that prevents users from posting comments containing predefined stopwords based on the [WordPress Comment Blacklist](https://github.com/splorp/wordpress-comment-blacklist/blob/master/reference/strings.txt). It allows network admins to configure a stopword list that blocks specific terms from appearing in comments across all subsites.
 
 ## Description
 
@@ -30,10 +30,10 @@ LS Comment Stopword Checker is a WordPress plugin specifically designed for mult
 3. Create or edit the `stopwords.txt` file in the plugin directory to define the prohibited words. By default, this file uses the stopword list from the [WordPress Comment Blacklist](https://github.com/splorp/wordpress-comment-blacklist/blob/master/reference/strings.txt).
 
 ### Configuration:
-
-- Define the stopwords in the `stopwords.txt` file (one word per line).
-- Add the email address of the Super Admin in the `LS_SUPER_ADMIN_EMAIL` constant in the `ls-comment-stopword-checker.php` file.
-- A settings page is available under Network Admin > Stopword Checker to view or manage stopwords.
+- NONE. 
+- If you want you can add more stopwords in the `stopwords.txt` file (one word per line).
+- If you want to change the get emails in a different email address than the  email address of the Super Admin you can define it in the `LS_SUPER_ADMIN_EMAIL` constant in the `ls-comment-stopword-checker.php` file.
+- A settings page is available under Network Admin > Stopword Checker to view stopwords.
 
 ## Frequently Asked Questions
 
