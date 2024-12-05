@@ -5,7 +5,7 @@ defined('ABSPATH') or die('Hi you');
  * Plugin Name: LS Comment Stopword Checker for Multisite
  * Plugin URI:  
  * Description: Prevents comments containing specific stopwords from being posted across the multisite.
- * Version:     1.0
+ * Version:     2.0
  * Author:      lenasterg
  * Author URI:  
  * License:     GPL-2.0+
@@ -23,7 +23,15 @@ class LS_Comment_Stopword_Checker {
      */
     const SUPER_ADMIN_EMAIL = ''; // Predefined email
 
-    public function __construct() {
+	/**
+     * Predefined email for the Super Admin to receive notifications.
+     * 
+     * If the plugin should sent email to SUPER_ADMIN_EMAIL
+	 * Activated for testing 
+     */
+	const SENT_EMAIL = false; // Predefined email
+
+   public function __construct() {
         // Hook to check comments before they are saved
         add_filter('preprocess_comment', [$this, 'check_comment_for_stopwords']);
         
@@ -61,6 +69,7 @@ class LS_Comment_Stopword_Checker {
      *
      * @param array $commentdata The comment data array.
      * @return array $commentdata The original or modified comment data.
+	 * @version 2.0
      */
     public function check_comment_for_stopwords($commentdata) {
         $stopwords = $this->get_stopwords();
@@ -92,14 +101,17 @@ class LS_Comment_Stopword_Checker {
                 // Check if the value matches any stopword in the current batch
                 if (preg_match($pattern, $value, $matches)) {
                     // Extract the first matched stopword
-                    $matched_stopword = htmlspecialchars($matches[0]);
-
+                   $matched_stopword = htmlspecialchars($matches[0]);
+/**
+*@since version 2.0
+*/
+				if (false !==self::SENT_EMAIL) {			
                     // Create a hook for other plugins to add additional functionality or data
                     do_action('ls_before_send_email_notification', $commentdata, $matched_stopword);
 
                     // Send an email to the Super Admin with the specific stopword
                     $this->send_email_to_super_admin($commentdata, $matched_stopword);
-                    
+                  }  
                     // Prevent comment submission
                     wp_die(
                         __('Your comment contains prohibited words and cannot be posted.', 'ls-comment-stopwords-checker-ms'),
