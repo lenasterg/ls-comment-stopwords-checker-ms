@@ -10,6 +10,7 @@
 **License URI:** [https://www.gnu.org/licenses/gpl-2.0.html](https://www.gnu.org/licenses/gpl-2.0.html)  
 
 LS Comment Stopword Checker is a WordPress multisite plugin that prevents users from posting comments containing predefined stopwords based on the [WordPress Comment Blacklist](https://github.com/splorp/wordpress-comment-blacklist/blob/master/reference/strings.txt). It allows network admins to configure a stopword list that blocks specific terms from appearing in comments across all subsites.
+It's aim is to be as light as it gets, so it doesn't log and doesn't queries the WordPress database. But you can activate the send mail functionality to get mail every time it blocks a comment, so you can verify it works
 
 ## Description
 
@@ -19,7 +20,7 @@ LS Comment Stopword Checker is a WordPress plugin specifically designed for mult
 - Supports multisite WordPress networks.
 - Blocks comments containing prohibited words (defined in `stopwords.txt`).
 - Uses a stopword list based on the [WordPress Comment Blacklist](https://github.com/splorp/wordpress-comment-blacklist/blob/master/reference/strings.txt) from GitHub.
-- Sends an email notification to the super admin when a comment is blocked.
+- Can send an email notification to the super admin when a comment is blocked. If you want to activate it, change const SENT_EMAIL to TRUE;
 - Provides a network admin settings page to manage stopwords.
 - Displays a notice to subsite admins about the stopword configuration.
 
@@ -32,6 +33,7 @@ LS Comment Stopword Checker is a WordPress plugin specifically designed for mult
 ### Configuration:
 - NONE. 
 - If you want you can add more stopwords in the `stopwords.txt` file (one word per line).
+- If you want to receive mail every time to plugin stops a comment, change const SENT_EMAIL to TRUE
 - If you want to change the get emails in a different email address than the  email address of the Super Admin you can define it in the `LS_SUPER_ADMIN_EMAIL` constant in the `ls-comment-stopword-checker.php` file.
 - A settings page is available under Network Admin > Stopword Checker to view stopwords.
 
@@ -59,6 +61,9 @@ No, only the super admin (as defined in the plugin) will receive email notificat
 2. **Stopword Notice**: A notice informing subsite admins about the stopword configuration on their discussion settings page.
 
 ## Changelog
+
+### 2.0
+- Addedn const SENT_EMAIL = FALSE, so the plugin don't send email for every comment it blocks
 
 ### 1.0
 - Initial release of LS Comment Stopword Checker.
