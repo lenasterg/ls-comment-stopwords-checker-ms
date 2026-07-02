@@ -5,7 +5,7 @@ Tags: comments, stopwords, multisite, spam
 Requires at least: 5.0
 Tested up to: 6.6
 Requires PHP: 7.0
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -58,6 +58,9 @@ No, only the super admin (as defined in the plugin) will receive email notificat
 2. **Stopword Notice**: A notice informing subsite admins about the stopword configuration on their discussion settings page.
 
 == Changelog ==
+
+= 1.1 =
+* Added new phrases in stopwords.txt.
 
 = 1.0 =
 * Initial release of LS Comment Stopword Checker.
