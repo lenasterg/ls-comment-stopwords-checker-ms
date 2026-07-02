@@ -5,7 +5,7 @@ defined('ABSPATH') or die('Hi you');
  * Plugin Name: LS Comment Stopword Checker for Multisite
  * Plugin URI:  
  * Description: Prevents comments containing specific stopwords from being posted across the multisite.
- * Version:     2.0
+ * Version:     1.1
  * Author:      lenasterg
  * Author URI:  
  * License:     GPL-2.0+
@@ -103,7 +103,7 @@ class LS_Comment_Stopword_Checker {
                     // Extract the first matched stopword
                    $matched_stopword = htmlspecialchars($matches[0]);
 /**
-*@since version 2.0
+*@since version 1.0
 */
 				if (false !==self::SENT_EMAIL) {			
                     // Create a hook for other plugins to add additional functionality or data
