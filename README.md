@@ -10,7 +10,10 @@
 **License URI:** [https://www.gnu.org/licenses/gpl-2.0.html](https://www.gnu.org/licenses/gpl-2.0.html)  
 
 LS Comment Stopword Checker is a WordPress multisite plugin that prevents users from posting comments containing predefined stopwords based on the [WordPress Comment Blacklist](https://github.com/splorp/wordpress-comment-blacklist/blob/master/reference/strings.txt). It allows network admins to configure a stopword list that blocks specific terms from appearing in comments across all subsites.
-It's aim is to be as light as it gets, so it doesn't log and doesn't queries the WordPress database. But you can activate the send mail functionality to get mail every time it blocks a comment, so you can verify it works
+
+It's aim is to be as light as it gets, so it doesn't log and doesn't queries the WordPress database.
+
+But you can activate the send mail functionality to get mail every time it blocks a comment, so you can verify it works
 
 ## Description
 
